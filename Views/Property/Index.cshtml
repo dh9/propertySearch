@@ -1,22 +1,64 @@
 @model RequirementsViewModel
-
-<form asp-controller="Property" asp-action="Search" method="post">
-    <label asp-for="Postcode"></label><input asp-for="Postcode"><span asp-validation-for="Postcode"></span>
-    <label asp-for="DistanceFromPostcode"></label><input asp-for="DistanceFromPostcode">
-    <label asp-for="MinPrice"></label><input asp-for="MinPrice">
-    <label asp-for="MaxPrice"></label><input asp-for="MaxPrice">
-    <label asp-for="MinBedrooms"></label><input asp-for="MinBedrooms">
-    <label asp-for="MaxBedrooms"></label><input asp-for="MaxBedrooms">
-    <button type="submit">Search</button>
-</form>
-
+<br/>
+<div class="container">
+    <form class="form-horizontal" asp-controller="Property" asp-action="Search" method="post">
+        <div class="form-group">
+            <label class="col-sm-2 control-label" asp-for="Postcode"></label>
+            <div class="col-sm-10">
+                <input class="form-control" asp-for="Postcode">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label" asp-for="DistanceFromPostcode"></label>
+            <div class="col-sm-10">
+                <div class="input-group">
+                    <input class="form-control" asp-for="DistanceFromPostcode">
+                    <div class="input-group-addon">miles</div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label" asp-for="MinPrice"></label>
+            <div class="col-sm-4">
+                <input class="form-control" asp-for="MinPrice">
+            </div>
+            <label class="col-sm-2 control-label" asp-for="MaxPrice"></label>
+            <div class="col-sm-4">
+                <input class="form-control" asp-for="MaxPrice">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label" asp-for="MinBedrooms"></label>
+            <div class="col-sm-4">
+                <input class="form-control" asp-for="MinBedrooms">
+            </div>
+            <label class="col-sm-2 control-label" asp-for="MaxBedrooms"></label>
+            <div class="col-sm-4">
+                <input class="form-control" asp-for="MaxBedrooms">
+            </div>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-lg btn-block">Search</button>
+        </div>
+    </form>
+</div>
 
 @if (Model?.Properties != null)
 {
     <ul>
     @foreach (var property in Model.Properties)
     {
-        <li><span>@property.Bedrooms bedrooms</span></li>
+        <div class="list-group">
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">@property.Postcode</h4>
+                <p class="list-group-item-text">
+                    <ul>
+                        <li>@property.Bedrooms bedrooms</li>
+                        <li>£@property.Price</li>
+                    </ul>
+                    </p>
+            </a>
+        </div>
     }
     </ul>
 }
