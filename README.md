@@ -47,3 +47,21 @@ To run latest image run:
 ```
 docker run --rm -p 8080:80 dh99/propertysearch:latest
 ```
+
+## If I had more time
+
+### Back end
+Add a real database. Azure Blob storage would be a simple addition for the images with Azure table storage for the Property details.
+Storage connection strings could be added as environment variables in the docker container.
+
+Images are currently cached but I'd look at caching Property details too.
+
+Splitting front end from Web Api and hosting in Kubernetes so each can be scaled separately.
+
+Add logging in. Tracing and Exception logging could be done through Application Insights.
+
+### Front end
+Formatting of inputs e.g. Postcode would be nice as would be Regex validation on input.
+
+Potentially changing POST request to GET so Query data can be copied in Url.
+
