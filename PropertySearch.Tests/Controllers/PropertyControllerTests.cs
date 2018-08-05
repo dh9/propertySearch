@@ -25,18 +25,24 @@ namespace PropertySearch.Tests.Controllers
         [TestMethod]
         public void Search_InvalidModel_ReturnsModel()
         {
+            //Arrange
             var model = _fixture.Create<PropertySearchViewModel>();
             
             var controller = new PropertyController(_propertyRepository.Object);
+            //Set model to be invalid
             controller.ModelState.AddModelError("test", "test");
+
+            //Act
             var result = controller.Search(model);
 
+            //Assert
             var viewResult = result as ViewResult;
             Assert.IsNotNull(viewResult);
             var viewModel = viewResult.Model as PropertySearchViewModel;
             Assert.IsNotNull(viewModel);
             Assert.AreSame(model, viewModel);
 
+            //Never call repository
             _propertyRepository.Verify(x => x.GetProperties(It.IsAny<Requirements>()), Times.Never);
         }
     }

@@ -18,7 +18,11 @@ namespace PropertySearch.Controllers
         {
             return View();
         }
-
+        /// <summary>
+        /// Searches for all properties that match given requirements
+        /// </summary>
+        /// <param name="model">Propert Search view model with requirements</param>
+        /// <returns>Property View model with search results</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Search(PropertySearchViewModel model)
@@ -42,6 +46,11 @@ namespace PropertySearch.Controllers
             return View("Index", model);
         }
 
+        /// <summary>
+        /// Returns Image data from repository
+        /// </summary>
+        /// <param name="id">Image Id</param>
+        /// <returns>Base 64 encoded Image source</returns>
         [HttpGet]
         public IActionResult Image(string id)
         {

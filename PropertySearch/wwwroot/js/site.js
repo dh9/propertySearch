@@ -1,7 +1,4 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
-
-// Write your JavaScript code.
+﻿//class for retrieving images from api
 var imageController = function () {
     var init = function (url) {
         $(document).ready(function () {
@@ -11,6 +8,7 @@ var imageController = function () {
                        url: url + '/' + this.id, 
                        success: function(result)
                        {
+                           //set source to api call result
                            document.getElementById("js-property-image").src = result;
                        }
                   });

@@ -5,8 +5,16 @@ using PropertySearch.Models;
 
 namespace PropertySearch.Repositories
 {
+    /// <summary>
+    /// Property Repository returning static data for demo purposes
+    /// </summary>
     public class PropertyRepository : IPropertyRepository
     {
+        /// <summary>
+        /// Returns static Property info
+        /// </summary>
+        /// <param name="requirements">Search requirements</param>
+        /// <returns>List of Property details</returns>
         public List<Property> GetProperties(Requirements requirements)
         {
             return new List<Property>()
@@ -28,15 +36,16 @@ namespace PropertySearch.Repositories
             };
         }
 
+        /// <summary>
+        /// Returns files from images folder in Base64 encoded string
+        /// </summary>
+        /// <param name="id">Image Id</param>
+        /// <returns>Base64 encoded image contents</returns>
         public string Image(string id)
         {
             var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", "Properties", id + ".png"); 
             byte[] b = System.IO.File.ReadAllBytes(path);
             return "data:image/png;base64," + Convert.ToBase64String(b);
-
-            //var stream = File.OpenRead(path);
-            //Convert.ToBase64String(stream.Re);
-            //return stream;
         }
     }
 }
