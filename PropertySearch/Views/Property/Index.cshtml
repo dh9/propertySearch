@@ -52,20 +52,30 @@
 
 @if (Model?.Properties != null)
 {
-    <ul>
-    @foreach (var property in Model.Properties)
-    {
-        <div class="list-group">
-            <a href="#" class="list-group-item">
-                <h4 class="list-group-item-heading">@property.Postcode</h4>
-                <p class="list-group-item-text">
-                    <ul>
-                        <li>@property.Bedrooms bedrooms</li>
-                        <li>£@property.Price</li>
-                    </ul>
-                    </p>
-            </a>
+    <div class="container">
+        <div class="row ">
+            <div class="col-sm-6">
+                <ul>
+                    @foreach (var property in Model.Properties)
+                    {
+                        <div class="list-group">
+                            <a href="#" class="list-group-item js-property-item" id="@property.Id">
+                                <h4 class="list-group-item-heading">@property.Postcode</h4>
+                                <p class="list-group-item-text">
+                                    <ul>
+                                        <li>@property.Bedrooms bedrooms</li>
+                                        <li>£@property.Price</li>
+                                    </ul>
+                                    </p>
+                            </a>
+                        </div>
+                    }
+                </ul>
+            </div>
+            <div class="col-sm-6">
+                <img id="js-property-image" src="" class="img-responsive"/>
+            </div>
         </div>
-    }
-    </ul>
+    </div>
+    
 }

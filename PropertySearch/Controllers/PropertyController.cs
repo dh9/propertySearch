@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.IO;
 using Microsoft.AspNetCore.Mvc;
 using PropertySearch.Models;
 using PropertySearch.Models.ViewModels;
@@ -26,7 +27,7 @@ namespace PropertySearch.Controllers
             {
                 return View("Index", model);
             }
-            
+
             var requirements = new Requirements {
                 MaxBedrooms = model.MaxBedrooms,
                 MinBedrooms = model.MinBedrooms,
@@ -39,6 +40,19 @@ namespace PropertySearch.Controllers
             model.Properties = _propertyRepository.GetProperties(requirements);
 
             return View("Index", model);
+        }
+
+        [HttpGet]
+        public IActionResult Image(string id)
+        {
+            try
+            {
+                return Content(_propertyRepository.Image(id));
+            }
+            catch (FileNotFoundException)
+            {
+                return NotFound();
+            }
         }
     }    
 }
