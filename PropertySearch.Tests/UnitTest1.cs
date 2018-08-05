@@ -8,6 +8,7 @@ namespace PropertySearch.Tests
         [TestMethod]
         public void TestMethod1()
         {
+            Assert.IsFalse(false);
         }
     }
 }

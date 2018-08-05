@@ -1,4 +1,6 @@
-@model RequirementsViewModel
+@using PropertySearch.Models.ViewModels
+
+@model PropertySearchViewModel
 <br/>
 <div class="container">
     <form class="form-horizontal" asp-controller="Property" asp-action="Search" method="post">
@@ -6,6 +8,7 @@
             <label class="col-sm-2 control-label" asp-for="Postcode"></label>
             <div class="col-sm-10">
                 <input class="form-control" asp-for="Postcode">
+                <span asp-validation-for="Postcode" class="text-danger" ></span>
             </div>
         </div>
         <div class="form-group">
@@ -15,6 +18,7 @@
                     <input class="form-control" asp-for="DistanceFromPostcode">
                     <div class="input-group-addon">miles</div>
                 </div>
+                <span asp-validation-for="DistanceFromPostcode" class="text-danger"></span>
             </div>
         </div>
         <div class="form-group">

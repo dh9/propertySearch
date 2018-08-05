@@ -1,6 +1,6 @@
 using System;
 
-namespace PropertySearch.Models
+namespace PropertySearch.Models.ViewModels
 {
     public class ErrorViewModel
     {
