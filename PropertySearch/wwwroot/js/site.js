@@ -9,7 +9,7 @@ var imageController = function () {
                        success: function(result)
                        {
                            //set source to api call result
-                           document.getElementById("js-property-image").src = result;
+                           document.getElementById("js-property-image").src = "data:image/png;base64," + result;
                        }
                   });
            });
