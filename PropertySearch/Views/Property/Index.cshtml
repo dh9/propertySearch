@@ -1,6 +1,9 @@
 @using PropertySearch.Models.ViewModels
 
 @model PropertySearchViewModel
+@{
+    ViewData["Title"] = "PropertySearch";
+}
 <br/>
 <div class="container">
     <form class="form-horizontal" asp-controller="Property" asp-action="Search" method="post">
