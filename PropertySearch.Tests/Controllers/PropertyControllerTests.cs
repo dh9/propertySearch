@@ -1,7 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PropertySearch.Controllers;
 using AutoFixture;
-using AutoFixture.AutoMoq;
 using PropertySearch.Repositories;
 using Moq;
 using PropertySearch.Models.ViewModels;

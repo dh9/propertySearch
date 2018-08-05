@@ -3,6 +3,8 @@ var imageController = function () {
     var init = function (url) {
         $(document).ready(function () {
             $('.js-property-item').on('click', function () {
+                $(this).siblings().removeClass('active')
+                $(this).addClass('active');
                 $.ajax(
                    {
                        url: url + '/' + this.id, 
